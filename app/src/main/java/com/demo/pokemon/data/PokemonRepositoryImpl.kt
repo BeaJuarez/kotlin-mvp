@@ -11,12 +11,12 @@ import javax.inject.Singleton
 class PokemonRepositoryImpl @Inject
 constructor(private val apiService: ApiService) : PokemonRepository {
 
-    override fun getPokemonList(limit: Int): Single<List<String>> {
+    override fun getPokemonList(limit: Int): Single<List<Pokemon>> {
         return apiService.getPokemonList(limit)
                 .toObservable()
                 .flatMapIterable { (results) -> results }
-                .map { (name) -> name }
                 .toList()
+
     }
 
     override fun getPokemon(name: String): Single<Pokemon> {

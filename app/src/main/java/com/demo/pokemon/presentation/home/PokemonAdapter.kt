@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.demo.pokemon.R
+import com.demo.pokemon.data.model.Pokemon
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
-class PokemonAdapter(val userList: List<String>, val callback : PokemonAdapter.Callback): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+class PokemonAdapter(val pokemons: List<Pokemon>, val callback : PokemonAdapter.Callback): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     interface Callback{
         fun onPokemonSelected(position: Int)
@@ -15,7 +16,8 @@ class PokemonAdapter(val userList: List<String>, val callback : PokemonAdapter.C
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
 //        holder?.tvName?.text = userList[position].name
 //        holder?.tvUrl?.text = userList[position].url
-        holder?.tvName?.text = userList[position]
+        holder?.tvName?.text = pokemons[position].name
+        holder?.tvUrl?.text = pokemons[position].url
         holder?.view?.setOnClickListener { callback.onPokemonSelected(position) }
     }
 
@@ -25,7 +27,7 @@ class PokemonAdapter(val userList: List<String>, val callback : PokemonAdapter.C
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return pokemons.size
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.demo.pokemon.R
+import com.demo.pokemon.data.model.Pokemon
 import com.demo.pokemon.di.module.HomeModule
 import com.demo.pokemon.presentation.base.BaseActivity
 import com.demo.pokemon.presentation.widget.SpinnerLoading
@@ -54,7 +55,7 @@ class HomeActivity : BaseActivity(), HomeView, PokemonAdapter.Callback {
     }
 
 
-    override fun showPokemon(pokemons: List<String>) {
+    override fun showPokemon(pokemons: List<Pokemon>) {
         btPokemons.visibility = View.GONE
         rvPokemons.visibility = View.VISIBLE
 

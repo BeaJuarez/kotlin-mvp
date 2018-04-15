@@ -1,4 +1,4 @@
 package com.demo.pokemon.data.model
 
-data class PokemonListResponse(val results: List<NamedResource>)
+data class PokemonListResponse(val results: List<Pokemon>)
 

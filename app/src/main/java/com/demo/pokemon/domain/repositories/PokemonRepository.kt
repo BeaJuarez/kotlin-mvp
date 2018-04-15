@@ -6,7 +6,7 @@ import io.reactivex.Single
 
 interface PokemonRepository{
 
-    fun getPokemonList(limit: Int): Single<List<String>>
+    fun getPokemonList(limit: Int): Single<List<Pokemon>>
 
     fun getPokemon(name: String): Single<Pokemon>
 }

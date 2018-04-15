@@ -1,12 +1,13 @@
 package com.demo.pokemon.presentation.home
 
+import com.demo.pokemon.data.model.Pokemon
 import com.demo.pokemon.domain.interactors.GetPokemonListInteractor
 import com.demo.pokemon.presentation.base.BasePresenter
 import javax.inject.Inject
 
 class HomePresenter @Inject
 constructor(private val interactor: GetPokemonListInteractor) : BasePresenter<HomeView>() , GetPokemonListInteractor.Callback{
-    override fun success(pokemons: List<String>) {
+    override fun success(pokemons: List<Pokemon>) {
         view?.apply {
             showProgress(false)
             showPokemon(pokemons)
