@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="home_get_pokemons">Get Pokemons</string>
 </resources>
